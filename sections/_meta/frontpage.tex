@@ -1,0 +1,79 @@
+% !TEX encoding = UTF-8 Unicode
+%!TEX root = thesis.tex
+% !TEX spellcheck = en-US
+ 
+%This is the Titlepage
+%%=========================================
+
+\newgeometry{margin=2.5cm, top=50mm, bottom=35mm, marginparsep=10mm, headheight=32mm, headsep=8mm, footskip=13mm}
+
+%\addtolength\headheight{ 5\baselineskip}% make space for your multi line header
+%\addtolength\textheight{-5 \baselineskip}
+
+\thispagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\fancyhead[C]{%
+	\hrule
+	\vspace{1.5em}
+	\begin{minipage}{0.5\textwidth}
+		\vspace{-2em}
+		\Huge{Preliminary report}\\
+		\LARGE{for bachelor's thesis}
+	\end{minipage}%
+	\begin{minipage}{0.5\textwidth}
+		\raggedleft
+	  	\includegraphics[scale=0.35]{sections/_meta/images/logo.png}
+	\end{minipage}
+}
+
+\fancyfoot[C]{%
+	\footnotesize
+	\begin{tabularx}{\textwidth}{ X X X X X }
+		\textbf{Postal address} & \textbf{Visitation address} & \textbf{Phone} & \textbf{Fax} & \textbf{Bank account} \\
+		NTNU i Ålesund & Larsgårdsvegen 2 & \href{tel:+4770161200}{70 16 12 00} & \href{fax:+4770161300}{70 16 13 00} & 7694 05 00636 \\
+		N-6025 Ålesund & \textbf{Internet} & \textbf{E-mail} && \textbf{Foretaksregisteret} \\
+		Norway & www.ntnu.no & \href{mailto:postmottak@ntnu.no}{postmottak@ntnu.no} && NO 947 767 880 \\ 
+	\end{tabularx}
+}
+
+%\mbox{}\\[4pc]
+\noindent
+\begin{tabularx}{\textwidth}{ |X| }
+	\hline
+	\scshape{Title}\\
+	Open source JavaScript voxelization library, with complementary applications\\
+  	\hline 
+\end{tabularx}
+\vspace{1em}
+
+\noindent
+\begin{tabularx}{\textwidth}{ |l|l|X|X| }
+	\hline
+	\multicolumn{4}{|l|}{\scshape{Candidate}}\\
+	\multicolumn{4}{|l|}{André Storhaug}\\
+  	\hline
+  	\scshape{Date} & \scshape{Subject code} & \scshape{Subject} & \scshape{Document access} \\
+  	31.01.2020 & IE303612 & Bachelor's thesis & - Open \\
+  	\hline
+	\multicolumn{2}{|l|}{\scshape{Study}} & \scshape{Pages/Attachments} & \scshape{Bibl. nr.}\\
+	\multicolumn{2}{|l|}{Computer engineering} & \multicolumn{1}{c|}{21/0} & Not used \\
+  	\hline 
+\end{tabularx}
+\vspace{1em}
+
+\noindent
+\begin{tabularx}{\textwidth}{ |X| }
+	\hline
+	\scshape{Supervisor(s)}\\
+	Primary: Ricardo Da Silva Torres\\
+	Secondary: Saleh Abdel-Afou Alaliyat\\
+  	\hline 
+\end{tabularx}
+
+\noindent
+\input{sections/_meta/summary}
+
+\restoregeometry

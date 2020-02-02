@@ -1,0 +1,112 @@
+\newgeometry{margin=2.5cm, top=20mm, bottom=35mm}
+\definecolor{foobarblue}{RGB}{0,153,255}
+\definecolor{foobaryellow}{RGB}{234,187,0}
+\newganttchartelement{mainbar}{
+    mainbar/.style={
+        draw=foobarblue!10!black,
+        fill=foobarblue!10
+    },
+    mainbar label font=\bfseries
+}
+
+\hspace{-2.25cm}
+\noindent
+\begin{ganttchart}[
+    hgrid,
+    vgrid={*{6}{draw=none},{dotted}},
+    time slot format=isodate,
+    time slot unit=day,
+    calendar week text = {W\currentweek{}},
+    vrule label font=\tiny,         
+    title label font=\tiny,
+    %bar label font=\tiny,
+    %milestone label font=\tiny,
+    %group label font=\bfseries\small,
+    bar height = 0.4,
+    milestone left shift =-1,
+    milestone right shift =1,
+    x unit=0.105cm,
+    y unit title=.6cm,
+    y unit chart=0.75cm,
+    link bulge = 2,
+    link/.style={-to, rounded corners = 2pt}
+    ]{2020-01-06}{2020-05-24}
+    %labels
+    \gantttitlecalendar{year, month=name, week=2} \\
+
+    %tasks
+    \ganttgroup[name=A1]{Writing}{2020-01-08}{2020-05-20} \\
+    \ganttbar[name=A11]{Preliminary report}{2020-01-08}{2020-01-31} \\
+    \ganttmilestone[name=M11]{Preliminary report completed}{2020-01-31} \\
+    \ganttbar[name=A12]{Bachelor's thesis}{2020-02-03}{2020-05-20} \\
+    \ganttmilestone[name=M12]{Bachelor's thesis completed}{2020-05-20} \\
+
+    % three-voxel-loader
+    \ganttmainbar[name=A3]{three-voxel-loader}{2020-02-03}{2020-02-14} \\
+    \ganttmilestone[name=M3]{three-voxel-loader completed}{2020-02-14} \\
+ 
+    % jsdoc-action
+    \ganttmainbar[name=A6]{jsdoc-action}{2020-02-17}{2020-02-21} \\
+    \ganttmilestone[name=M6]{jsdoc-action completed}{2020-02-21} \\
+
+    % Automation
+    \ganttmainbar[name=A7]{Automation}{2020-02-17}{2020-02-21} \\
+    \ganttmilestone[name=M7]{Automation implemented}{2020-02-21} \\
+
+    % voxelizer
+    \ganttgroup[name=A2]{voxelizer}{2020-02-24}{2020-04-15} \\
+    \ganttbar[name=A21]{Core improvements}{2020-02-24}{2020-02-28} \\
+    \ganttbar[name=A22]{Algorithm improvements}{2020-03-02}{2020-03-13} \\
+    \ganttbar[name=A23]{Texture support}{2020-03-16}{2020-03-20} \\
+    \ganttbar[name=A24]{Extending 3D model file loading}{2020-03-23}{2020-03-27} \\
+    \ganttbar[name=A25]{Extending data exporting}{2020-03-30}{2020-04-03} \\
+    \ganttbar[name=A26]{Write tests}{2020-04-06}{2020-04-08} \\
+    \ganttbar[name=A27]{Optimization}{2020-04-14}{2020-04-15} \\
+    \ganttmilestone[name=M2]{voxelizer completed}{2020-04-15} \\
+ 
+    % voxelizer-desktop
+    \ganttgroup[name=A4]{voxelizer-desktop}{2020-04-16}{2020-05-07} \\
+    \ganttbar[name=A41]{Core}{2020-04-16}{2020-04-22} \\
+    \ganttbar[name=A42_1]{GUI}{2020-04-23}{2020-04-30}
+    \ganttlinkedbar[name=A42_2]{}{2020-05-04}{2020-05-07} \\
+    \ganttmilestone[name=M4]{voxelizer-desktop completed}{2020-05-07} \\
+
+    % voxelizer-cli
+    \ganttmainbar[name=A5]{voxelizer-cli}{2020-05-08}{2020-05-14} \\
+    \ganttmilestone[name=M5]{voxelizer-cli completed}{2020-05-014} \\
+    
+    % relations
+    % Writing
+    \ganttlink{A11}{M11}
+    \ganttlink[link type=dr]{M11}{A12}
+    %\ganttlink{M11}{A12}
+    \ganttlink{A12}{M12}
+    % three-voxel-loader
+    \ganttlink[link type=dr]{M11}{A3}
+    \ganttlink{A3}{M3}
+    % jsdoc-action
+    \ganttlink[link type=dr]{M3}{A6}
+    \ganttlink{A6}{M6}
+    % Automation
+    \ganttlink[link type=dr]{M3}{A7}
+    \ganttlink{A7}{M7}
+    % voxelizer
+    \ganttlink{M7}{A21}
+    \ganttlink{A21}{A22}
+    \ganttlink{A22}{A23}
+    \ganttlink{A23}{A24}
+    \ganttlink{A24}{A25}
+    \ganttlink{A25}{A26}
+    \ganttlink{A26}{A27}
+    \ganttlink{A27}{M2}
+    % voxelizer-desktop
+    \ganttlink{M2}{A41}
+    \ganttlink{A41}{A42_1}
+    \ganttlink{A42_2}{M4}
+    % voxelizer-cli
+    \ganttlink{M4}{A5}
+    \ganttlink{A5}{M5}
+    
+
+\end{ganttchart}
+\restoregeometry

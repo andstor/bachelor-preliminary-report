@@ -1,0 +1,57 @@
+\section{Progress plan}
+
+\subsection{Master plan}
+\label{sec:master-plan}
+Following is a gantt diagram \ref{fig:gantt-diagram-progress-plan} for the planned time sceduling. This includes all activities listed in section \ref{sec:primary-activities}. These activities primarly include writing and software development. Activity A1 is concerned about writing the preliminary report and the thesis. Activity A2, A3, A4, A5 and A6 is concerned with the development of various software systems, where each activity is a confined project. A7 is concerned with automation of various tasks in many of the software projects.
+
+{
+\begin{figure}[h]
+\thispagestyle{empty}
+%\begin{landscape}
+	\clearpage
+	\input{sections/project-description/gantt}
+	\caption{Gantt diagram of progress plan.}
+	\label{fig:gantt-diagram-progress-plan}
+\end{figure}
+\clearpage
+}
+
+%%===================================
+\subsection{Project control assets}
+\label{sec:project-control-assets}
+In order to keep the project on track, Jira \cite{jira} will be used. Jira is a project management tool developed by Atlassian, supporting a vast number of features such as issue tracking and project management. The main reason for choosing Jira over for example GitHub's solutions, is that Jira supports the agile methodology Scrum. For managing documents, minutes of meetings, UML diagrams, etc., Confluence \cite{confluence} will be used.
+
+Since this project revolves around open source projects, Jira and Confluence will only be used for internal related work. For public usage, the GitHub issue tracker and wiki will be used. Any issues, bugs or documentation of public interest shall be be placed on GitHub, instead of Jira and Confluence.
+
+%%===================================
+\subsection{Development assets}
+For developing the various systems, the development tools listed in table \ref{tab:development-tools} will be used.
+
+\vspace{1em}
+
+\begin{table}[H]
+\centering
+\caption{Development tools.}
+\label{tab:development-tools}
+\begin{tabular}{ |l@{\hspace*{1.5em}}|@{\hspace*{1.5em}}l| }
+	\hline
+	\textbf{Development tool} & \textbf{Description} \\
+	\hline
+	Visual Studio Code \cite{visual-studio-code} & Editor for writing and debugging code.\\
+	\hline
+	Blender \cite{blender} & 3D modeling software. \\
+	\hline
+	Git \cite{git} & Version control.\\
+	\hline
+	GitHub \cite{github} & Hosting of git repositories. \\
+	\hline
+	SourceTree \cite{sourcetree} & Git desktop client. \\
+	\hline
+\end{tabular}
+\end{table}
+
+%%===================================
+\subsection{Internal control and evaluation}
+At the end of each sprint, a review of the completed sprint will be conducted. A burndown chart will be generated for each sprint. This will help identifying if adjustments to the plan is nesseseary.
+
+The requirements specification will serve as the primary criteria in order to decide wether a goal is completed or not. If a system is implemented but contains minor bugs, it will still be considered complete.

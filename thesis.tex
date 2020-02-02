@@ -1,0 +1,57 @@
+% This is the root file of your thesis: thesis.tex
+% A line starting with % is a comment. In some cases, I have included a command preceded by a %. You may activate the command by removing the %.
+
+%%===================================
+\documentclass[12pt]{report}
+\usepackage{ramsstyle}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{gensymb}
+
+\usepackage{multirow, tabularx}
+\usepackage[table]{xcolor}
+\usepackage{hhline}
+\usepackage{fancyhdr}
+
+\usepackage{pgfgantt}
+\usepackage{lscape} 
+
+%\usepackage{showframe}
+
+%%===================================
+%Write the various parts of your thesis as separate files and include them into the main file by the command \include{name of included file}. When you compile the LaTeX file, you may choose which subfiles to include by the command
+
+%\includeonly{sections/project-description/project-description}
+
+%%===================================
+
+
+\begin{document}
+\setcounter{page}{0}
+\pagenumbering{roman}
+\include{sections/_meta/frontpage} % This is the titlepage
+
+\include{sections/_meta/submission-note}
+\tableofcontents
+\setcounter{page}{0}
+\pagenumbering{arabic}
+
+\include{sections/terminology}
+\include{sections/introduction}
+\include{sections/project-organization}
+\include{sections/attitude}
+\include{sections/project-description/project-description}
+\include{sections/documentation}
+\include{sections/planned-meetings-and-reports}
+\include{sections/planned-deviation-management}
+
+% Include more appendices as required.
+%%=========================================
+\bibliographystyle{plainnat}
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliography{refs}
+
+
+\end{document}

@@ -1,0 +1,213 @@
+%This is chapter 5
+%%=========================================
+\chapter{Project description}
+
+\section{Thesis problem - goals - purpose}
+\subsection{Thesis problem}
+There exists an open source JavaScript library for conducting voxelization of 3D models. This library is called "Voxelizer". However, the library faces several issues and is lacking important features. It needs to be professionalized and made easy to both use and maintain.
+
+\subsection{Goals}
+This project has two main goals. The first goal is to improve and extend the open source Voxelizer library in such a way that it fulfills the requirements specified in the next section. The second goal is to develop a cross platform desktop application and a CLI for easy voxelization of 3D models, based the Voxelizer library.
+
+In order to ensure maintainability of the various software projects, automation is critical. Therefore, a common subgoal will be to develop a GitHub action in order to automate documentation generation.
+
+\subsection{Purpose}
+The purpose of this project is to make it easy to conduct high quality voxelization of 3D models.
+
+%%===================================
+\section{Requirements specification}
+The scope of this project is defined and limited by the requirements specification defined in following sections. In addition to this specification below, a backlog with user stories shall be created.
+
+\subsection{Voxelizer}
+\subsubsection{Algorithms}
+The voxelisation algorithm should provide an accurate render of the original 3D model (polygon mesh \cite{polygon-mesh}). The result should be geometrically representative witout distortions. No holes should be presen, unless dictated so by the given 3D model shape. Internal cavities and structures needs to be accuratly preserved. Lastly, there should be an absolute minimum of artifacts.
+
+It should be possible to do two types of voxelization. One that is a shell voxelization, and another that is a filled volume version. The shell-type algorithm should only capture the surface of the 3D model. The filled-type algorithm needs to capture a complete volume representation of the 3D model.
+
+One should be able to set the wanted resolution of the voxelization.
+
+\subsubsection{Input}
+The library should support a large variety of different input types. Both in terms of various file types and data structures. Support for popular file formats such as OBJ, STL and gLTF should be implemented.
+
+\subsubsection{Output}
+A diverse mixture of output types have to be supported. This includes relevant file formats and data structures. Some file formats for saving voxel data are VOX by MagicaVoxel \cite{magica-voxel}, XML, BINVOX \cite{binvox-file-format} and minecraft SCHEMATIC format. Relevant data structure exports include 3D arrays and octrees.
+
+It should also be possible to export the voxelized result as normal 3D models. This could be file formats such as OBJ, STL and gLTF. Each voxel in the model should be represented as a cube.
+
+Lastly, one could also support image export for each layer of the voxelized result. File format could for example be JPEG or PNG.
+
+\subsubsection{Coloring}
+The texture of a 3D model should carry over to surface voxels. This should be in the form of the most representative color.
+
+\subsubsection{Optimization}
+tree.js raycasting should be optimized. three.js raycasting is CPU based. It itterates each face in a 3D model, checking if the ray intersects a face or not. However, one can speed up the raycasting by employing a spatial index, for example with the help of an octree \cite{octree} or aabb tree .
+
+\subsection{three.js voxel loader}
+The three.js voxel loader module needs to be able to load voxel data into a three.js mesh \cite{three.js-mesh}. The module should manage to load the voxel file formats and data structures that the voxelizer library supports exporting. This is voxel data stored in the form of a 3D array or an octree, or in a file format like VOX, XML BINVOX or SCHEMATIC.
+
+It should be possible to costumize the appearance of the loaded voxels. Both in terms of size, material and/or color.
+
+\subsection{Voxelizer Desktop}
+The Voxelizer Desktop shall be a corss-plattform \cite{cross-platform} desktop application. It should work on both MacOS, Windows and Linux. The application should be able to voxelize a 3D models with the use of the Voxelizer library \cite{voxelizer}. Also, it should automatically update itself when a new release of the application is published.
+
+The application should provide intuitive GUI. It should be possible to view both the original 3D model and the voxelized result. Also, it should be possible to generate a 2D view of the cross-sections of the voxelized model.
+
+\subsection{Voxelizer CLI}
+The Voxelizer CLI should be a corss-plattform \cite{cross-platform} CLI application. It should function on both MacOS, Windows and Linux. The application should be able to voxelize a 3D models with the use of the Voxelizer library \cite{voxelizer}.
+
+\subsection{JSDoc Action}
+The JSDoc GitHub Action should be an installable GitHub Action \cite{github-actions}, available from the GitHub marketplace \cite{github-marketplace}. It should automate the process of generating JavaScript documentation with the help of JSDoc \cite{jsdoc}.
+
+\subsection{Automation}
+Automation should be used to ease maintenance of the various software projects. Firstly, JavaScript projects needs to have the documentation automatically generated with JSDoc \cite{jsdoc}. Secondly, the process of publishing new versions should be automated to the greatest extent.
+
+%%===================================
+\section{Methodology}
+The method that will be utilize in this project is the agile methodology Scrum \cite{scrum}. Scrum is a very popular working methodology in the software development business. It uses an iterative and incremental approach, where each sprint gives an opportunity to improve the development process. Scrum organizes the work in sprints. This is a predefined period of time that is devoted to a set of very defined goals. The tasks to be done are often defined in a product backlog \cite{product-backlog}.
+
+Scrum is mainly intended for teams. However, even though this is a one man project. The Scrum methodology will serve as a project framework for keeping up with progress, in addition to being able to adapt the project pace to the available working capacity. By breaking down the tasks to be done in sprints, this will help with organizing the work and steering the project in the right direction, allowing adjustmens along the way.
+
+For this project, each sprint will be two weeks long. After each spring, a review of the completed sprint will be made. This will be an opportunity to reflect on the process, and see which goals were completed and which wasn't. Further, this review will be highly valuable for determining if adjustments should be made for the next sprint.
+
+Scrum also seems to be a good fit because there will be a meeting with the supervisor every two weeks. By organizing the tasks to be done in two-week sprints, this will make the meetings with the supervisor more effective and relevant. New functionallity can be discussed and reviewed, in addition to planning ahead for the next two weeks.
+
+%%===================================
+\section{Information gathering}
+The main source of information will come from various web resources. Everything from articles to code documentation will be needed for this project. The MDN Web Docs \cite{mdn-web-docs} will be an important source for JavaScript documentation. For Node.js related work, the Node.js API Docs \cite{node.js-api-docs} will be put to good use. Also, documentation from the third party library Three.js \cite{three.js-docs} will be essential. Further, Stack Overflow \cite{stack-overflow} will be a highly valued source of information due to its wast amount of questions and answers in a lot of topics.
+
+%%===================================
+\section{Risk analysis}
+A qualitative approach will be used for assessing the risk of this project. A risk can be described as the likelihood of an event times the impact. A \textbf{MEDIUM} risk level will be accepted.
+The table \ref{tab:risk-level-matrix} will be used in order to define the various risk levels.
+
+\begingroup
+\newcolumntype{Y}{ >{\centering\arraybackslash}X } % Defines new column "X" type for centering
+\renewcommand{\tabularxcolumn}[1]{m{#1}} % Make columns vertically aligned
+\begin{table}[H]
+\caption{Risk level matrix.}
+\label{tab:risk-level-matrix}
+\begin{tabularx}{\textwidth}{ |l|c|Y|Y|Y|Y| }
+	\hhline{*{2}{~}*{4}{|-}}
+	\multicolumn{2}{c}{\multirow{2}{*}{}} & \multicolumn{4}{ |c| }{\textbf{IMPACT}}\\
+	\hhline{*{2}{~}*{4}{|-}}
+	\multicolumn{2}{l|}{} & \textbf{LOW} & \textbf{MEDIUM} & \textbf{HIGH} & \textbf{VERY HIGH}\\
+	\hline
+	\multirow{4}{*}[0em]{\begin{sideways} \textbf{LIKELIHOOD}\end{sideways}}
+	& \textbf{VERY HIGH} & \cellcolor{yellow!15} MEDIUM & \cellcolor{orange!15} HIGH & \cellcolor{red!15} VERY HIGH & \cellcolor{red!15} VERY HIGH \\
+	\hhline{*{2}{|~}*{4}{|-}}
+	& \textbf{HIGH} & \cellcolor{yellow!15} MEDIUM & \cellcolor{orange!15} HIGH & \cellcolor{orange!15} HIGH & \cellcolor{red!15} VERY HIGH \\
+	\hhline{*{2}{|~}*{4}{|-}}
+	& \textbf{MEDIUM} & \cellcolor{green!15} LOW & \cellcolor{yellow!15} MEDIUM & \cellcolor{orange!15} HIGH & \cellcolor{orange!15} HIGH \\
+	\hhline{*{2}{|~}*{4}{|-}}
+	& \textbf{LOW} & \cellcolor{green!15} LOW & \cellcolor{green!15} LOW & \cellcolor{yellow!15} MEDIUM & \cellcolor{yellow!15} MEDIUM \\
+	\hline
+\end{tabularx}
+\end{table}
+\endgroup
+
+In table \ref{tab:risk-assessment} below, a risk assessment and risk control is conducted. The letter “L" stands for “Likelihood”, “I” for “Impact” and "R" for "Risk".
+
+\begingroup
+\renewcommand{\tabularxcolumn}[1]{m{#1}} % Make columns vertically aligned
+\newcolumntype{Y}{ >{\centering\arraybackslash}X } % Defines new column "X" type for centering
+\begin{table}[H]
+\caption{Risk assessment table.}
+\label{tab:risk-assessment}
+\begin{tabularx}{\textwidth}{ |l|X|c|c|c|X|c|c|c| }
+	\hhline{*{6}{|~}*{3}{|-}}
+	\multicolumn{6}{X}{}& \multicolumn{3}{|l|}{\textbf{Residual risk}} \\
+	\hline
+	\textbf{ID} & \textbf{Description} & \textbf{L} & \textbf{I} & \textbf{R} & \textbf{Risk control} & \textbf{L} & \textbf{I} & \textbf{R} \\
+	\hline
+	R1
+		& Services like GitHub, Jira and Confluence may go down, making various resources unavailable.
+		& L & VH & \cellcolor{orange!15}H
+		& Perform regular backups of important data.
+		& L & M & \cellcolor{yellow!15}M\\
+	\hline
+	R2
+		& Sickness, resulting in inability to work.
+		& M & M & \cellcolor{yellow!15}M
+		& Practicing good hygiene.
+		& L & M & \cellcolor{yellow!15}M\\
+	\hline
+	R3
+		& Damaged equipment used for development.
+		& L & VH & \cellcolor{yellow!15}M
+		& Exercise caution when handling important equipment.
+		& L & H & \cellcolor{yellow!15}M \\
+	\hline
+	R4
+		& Lost or corrupt files due to system crash or failure.
+		& M & VH & \cellcolor{orange!15}H
+		& Perform regular backups of important data.
+		& M & L & \cellcolor{green!15}L \\
+	\hline
+	R5
+		& Incompatibilities between technologies.
+		& M & M & \cellcolor{yellow!15}M
+		& Properly assess the technology and plan ahead before starting development.
+		& L & M & \cellcolor{green!15}L \\
+	\hline
+	R6
+		& Security vulnerability in package dependency.
+		& VH & H & \cellcolor{red!15}VH
+		& Automatic package auditing and fixing provided by GitHub \cite{github-security-vulnerabilities}.
+		& L & H & \cellcolor{yellow!15}M \\
+	\hline
+\end{tabularx}
+
+\end{table}
+\begin{tabularx}{\textwidth}{ r@{\hspace*{2.5em}}l }
+	VH: & VERY HIGH risk\\
+	H: & HIGH risk \\
+	M: & MEDIUM risk\\
+	L: & LOW risk\\
+\end{tabularx}
+\endgroup
+\vspace{1em}
+
+The risk assessment done in table \ref{tab:risk-assessment} shows that with the appropriate counter measures, all risks are reduced to a MEDIUM level. This is an acceptable level.
+
+%%===================================
+\section{Primary activities in further work}
+\label{sec:primary-activities}
+\begin{table}[H]
+\setlength{\tabcolsep}{2em}
+\caption{Main activities.}
+\begin{tabularx}{\textwidth}{@{\hspace*{2.5em}}l X l }
+	\multicolumn{1}{l}{\textbf{Nr}} & \textbf{Main activity} & \textbf{Time/scope} \\
+	\hline
+	\multicolumn{1}{l}{\textbf{A1}} & \textbf{Writing} & \textbf{18 weeks} \\
+	A11 & Preliminary report & 3 weeks \\
+	A12 & Bachelor's thesis & 15 weeks \\
+	\\
+	\multicolumn{1}{l}{\textbf{A2}} & \textbf{voxelizer} & \textbf{7 weeks} \\
+	A21 & Core improvements & 1 week\\
+	A22 & Algorithm improvements & 2 weeks\\
+	A23 & Texture support & 1 week \\
+	A24 & Extending 3D model file loading & 1 week \\
+	A25 & Extending data exporting & 1 week \\
+	A26 & Write tests & 3 days \\
+	A27 & Optimization & 2 days \\
+	\\
+	\multicolumn{1}{l}{\textbf{A3}} & \textbf{three-voxel-loader} & \textbf{2 weeks} \\
+	\\
+	\multicolumn{1}{l}{\textbf{A4}} & \textbf{voxelizer-desktop} & \textbf{3 weeks} \\
+	A41 & Core & 1 week \\
+	A42 & GUI & 2 weeks \\
+	\\
+	\multicolumn{1}{l}{\textbf{A5}} & \textbf{voxelizer-cli} & \textbf{1 week} \\
+	\\
+	\multicolumn{1}{l}{\textbf{A6}} & \textbf{jsdoc-action} & \textbf{1 week} \\
+	\\
+	\multicolumn{1}{l}{\textbf{A7}} & \textbf{Automation} & \textbf{1 week} \\
+\end{tabularx}
+\end{table}
+
+%%===================================
+\input{sections/project-description/progress-plan}
+
+
+
+
