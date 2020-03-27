@@ -17,12 +17,6 @@ jobs:
         with:
           root_file: report.tex
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: my-artifact
-          path: report.pdf
-
       - name: Commit report
         run: |
           git config --global user.name "${GITHUB_ACTOR}"
@@ -32,3 +26,12 @@ jobs:
             git commit -m 'Update report.pdf'
             git push
           fi
+
+      - name: Copy to thesis
+        uses: andstor/copycat-action@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          src_path: /report.pdf
+          dst_path: /appendices/report.pdf
+          dst_owner: andstor
+          dst_repo_name: bachelor-thesis
