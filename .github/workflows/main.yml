@@ -32,6 +32,6 @@ jobs:
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           src_path: /report.pdf
-          dst_path: /appendices/report.pdf
+          dst_path: /appendices/assets/preliminary-report.pdf
           dst_owner: andstor
           dst_repo_name: bachelor-thesis
