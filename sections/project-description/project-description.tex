@@ -4,10 +4,10 @@
 
 \section{Thesis problem - goals - purpose}
 \subsection{Thesis problem}
-There exists an open source JavaScript library for conducting voxelization of 3D models. This library is called "Voxelizer". However, the library faces several issues and is lacking important features. It needs to be professionalized and made easy to both use and maintain.
+There exists an open source JavaScript engine for conducting voxelization of 3D models. This engine is called "Voxelizer". However, the engine faces several issues and is lacking important features. It needs to be professionalized and made easy to both use and maintain.
 
 \subsection{Goals}
-This project has two main goals. The first goal is to improve and extend the open source Voxelizer library in such a way that it fulfills the requirements specified in the next section. The second goal is to develop a cross platform desktop application and a CLI for easy voxelization of 3D models, based the Voxelizer library.
+This project has two main goals. The first goal is to improve and extend the open source Voxelizer engine in such a way that it fulfills the requirements specified in the next section. The second goal is to develop a cross platform desktop application and a CLI for easy voxelization of 3D models, based the Voxelizer engine.
 
 In order to ensure maintainability of the various software projects, automation is critical. Therefore, a common subgoal will be to develop a GitHub action in order to automate documentation generation.
 
@@ -20,17 +20,15 @@ The scope of this project is defined and limited by the requirements specificati
 
 \subsection{Voxelizer}
 \subsubsection{Algorithms}
-The voxelisation algorithm should provide an accurate render of the original 3D model (polygon mesh \cite{polygon-mesh}). The result should be geometrically representative witout distortions. No holes should be presen, unless dictated so by the given 3D model shape. Internal cavities and structures needs to be accuratly preserved. Lastly, there should be an absolute minimum of artifacts.
+The voxelization algorithm should provide an accurate render of the original 3D model (polygon mesh \cite{polygon-mesh}). The result should be geometrically representative without distortions. No holes should be present, unless dictated so by the given 3D model shape. Internal cavities and structures need to be accurately preserved. Lastly, there should be an absolute minimum of artifacts.
 
-It should be possible to do two types of voxelization. One that is a shell voxelization, and another that is a filled volume version. The shell-type algorithm should only capture the surface of the 3D model. The filled-type algorithm needs to capture a complete volume representation of the 3D model.
-
-One should be able to set the wanted resolution of the voxelization.
+It should be possible to do two types of voxelization. One that is a shell voxelization, and another that is a filled volume version. The shell-type algorithm should only capture the surface of the 3D model. The filled-type algorithm needs to capture a complete volume representation of the 3D model. It should also be possible to precisely control the wanted resolution of the voxelization.
 
 \subsubsection{Input}
-The library should support a large variety of different input types. Both in terms of various file types and data structures. Support for popular file formats such as OBJ, STL and gLTF should be implemented.
+The engine should support a large variety of different input types. Both in terms of various file types and data structures. Support for popular file formats, such as OBJ, STL and gLTF should be implemented.
 
 \subsubsection{Output}
-A diverse mixture of output types have to be supported. This includes relevant file formats and data structures. Some file formats for saving voxel data are VOX by MagicaVoxel \cite{magica-voxel}, XML, BINVOX \cite{binvox-file-format} and minecraft SCHEMATIC format. Relevant data structure exports include 3D arrays and octrees.
+A diverse mixture of output types have to be supported. This includes relevant file formats and data structures. Some file formats for saving voxel data are VOX by MagicaVoxel \cite{magica-voxel}, XML, BINVOX \cite{binvox-file-format} and Minecraft SCHEMATIC format. Relevant data structure exports include 3D arrays and octrees.
 
 It should also be possible to export the voxelized result as normal 3D models. This could be file formats such as OBJ, STL and gLTF. Each voxel in the model should be represented as a cube.
 
@@ -40,34 +38,34 @@ Lastly, one could also support image export for each layer of the voxelized resu
 The texture of a 3D model should carry over to surface voxels. This should be in the form of the most representative color.
 
 \subsubsection{Optimization}
-tree.js raycasting should be optimized. three.js raycasting is CPU based. It itterates each face in a 3D model, checking if the ray intersects a face or not. However, one can speed up the raycasting by employing a spatial index, for example with the help of an octree \cite{octree} or aabb tree .
+tree.js raycasting should be optimized. three.js raycasting is CPU based. It iterates each face in a 3D model, checking if the ray intersects a face or not. However, one can speed up the raycasting by employing a spatial index, for example with the help of an octree \cite{octree} or aabb tree.
 
 \subsection{three.js voxel loader}
-The three.js voxel loader module needs to be able to load voxel data into a three.js mesh \cite{three.js-mesh}. The module should manage to load the voxel file formats and data structures that the voxelizer library supports exporting. This is voxel data stored in the form of a 3D array or an octree, or in a file format like VOX, XML BINVOX or SCHEMATIC.
+The three.js voxel loader module needs to be able to load voxel data into a three.js mesh \cite{three.js-mesh}. The module should manage to load the voxel file formats and data structures that the Voxelizer engine supports exporting. This is voxel data stored in the form of a 3D array or an octree, or in a file format like VOX, XML, BINVOX or SCHEMATIC.
 
-It should be possible to customize the appearance of the loaded voxels. Both in terms of size, material and/or color.
+It should be possible to customize the appearance of the loaded voxels, Both in terms of size, material and/or color.
 
 \subsection{Voxelizer Desktop}
-The Voxelizer Desktop shall be a corss-plattform \cite{cross-platform} desktop application. It should work on both MacOS, Windows and Linux. The application should be able to voxelize a 3D models with the use of the Voxelizer library \cite{voxelizer}. Also, it should automatically update itself when a new release of the application is published.
+The Voxelizer Desktop shall be a cross-platform \cite{cross-platform} desktop application. It should work on both MacOS, Windows and Linux. The application should be able to voxelize a 3D models with the use of the Voxelizer engine \cite{voxelizer}. Also, it should automatically update itself when a new release of the application is published.
 
 The application should provide intuitive GUI. It should be possible to view both the original 3D model and the voxelized result. Also, it should be possible to generate a 2D view of the cross-sections of the voxelized model.
 
 \subsection{Voxelizer CLI}
-The Voxelizer CLI should be a corss-plattform \cite{cross-platform} CLI application. It should function on both MacOS, Windows and Linux. The application should be able to voxelize a 3D models with the use of the Voxelizer library \cite{voxelizer}.
+The Voxelizer CLI should be a cross-platform \cite{cross-platform} CLI application. It should function on MacOS, Windows, and Linux. The application should be able to voxelize 3D models with the use of the Voxelizer engine \cite{voxelizer}.
 
 \subsection{JSDoc Action}
 The JSDoc GitHub Action should be an installable GitHub Action \cite{github-actions}, available from the GitHub marketplace \cite{github-marketplace}. It should automate the process of generating JavaScript documentation with the help of JSDoc \cite{jsdoc}.
 
 \subsection{Automation}
-Automation should be used to ease maintenance of the various software projects. Firstly, JavaScript projects needs to have the documentation automatically generated with JSDoc \cite{jsdoc}. Secondly, the process of publishing new versions should be automated to the greatest extent.
+Automation should be used to ease maintenance of the various software projects. Firstly, JavaScript projects need to have the documentation automatically generated with JSDoc \cite{jsdoc}. Secondly, the process of publishing new versions should be automated to the greatest extent.
 
 %%===================================
 \section{Methodology}
-The method that will be utilize in this project is the agile methodology Scrum \cite{scrum}. Scrum is a very popular working methodology in the software development business. It uses an iterative and incremental approach, where each sprint gives an opportunity to improve the development process. Scrum organizes the work in sprints. This is a predefined period of time that is devoted to a set of very defined goals. The tasks to be done are often defined in a product backlog \cite{product-backlog}.
+The method that will be utilized in this project is the agile methodology Scrum \cite{scrum}. Scrum is a very popular working methodology in the software development business. It uses an iterative and incremental approach, where each sprint gives an opportunity to improve the development process. Scrum organizes the work in sprints. This is a predefined period of time that is devoted to a set of very defined goals. The tasks to be done are often defined in a product backlog \cite{product-backlog}.
 
-Scrum is mainly intended for teams. However, even though this is a one man project. The Scrum methodology will serve as a project framework for keeping up with progress, in addition to being able to adapt the project pace to the available working capacity. By breaking down the tasks to be done in sprints, this will help with organizing the work and steering the project in the right direction, allowing adjustmens along the way.
+Scrum is mainly intended for teams. However, even though this is a one-man project. The Scrum methodology will serve as a project framework for keeping up with progress, in addition to being able to adapt the project pace to the available working capacity. By breaking down the tasks to be done in sprints, this will help with organizing the work and steering the project in the right direction, allowing adjustments along the way.
 
-For this project, each sprint will be two weeks long. After each spring, a review of the completed sprint will be made. This will be an opportunity to reflect on the process, and see which goals were completed and which wasn't. Further, this review will be highly valuable for determining if adjustments should be made for the next sprint.
+For this project, each sprint will be two-week long. After each spring, a review of the completed sprint will be done. This will be an opportunity to reflect on the process, and see which goals were completed and which was not. Further, this review will set the basis for determining if adjustments should be made for the next sprint.
 
 Scrum also seems to be a good fit because there will be a meeting with the supervisor every two weeks. By organizing the tasks to be done in two-week sprints, this will make the meetings with the supervisor more effective and relevant. New functionallity can be discussed and reviewed, in addition to planning ahead for the next two weeks.
 
@@ -78,7 +76,7 @@ The main source of information will come from various web resources. Everything 
 %%===================================
 \section{Risk analysis}
 A qualitative approach will be used for assessing the risk of this project. A risk can be described as the likelihood of an event times the impact. A \textbf{MEDIUM} risk level will be accepted.
-The table \ref{tab:risk-level-matrix} will be used in order to define the various risk levels.
+The Table \ref{tab:risk-level-matrix} will be used in order to define the various risk levels.
 
 \begingroup
 \newcolumntype{Y}{ >{\centering\arraybackslash}X } % Defines new column "X" type for centering
@@ -105,7 +103,7 @@ The table \ref{tab:risk-level-matrix} will be used in order to define the variou
 \end{table}
 \endgroup
 
-In table \ref{tab:risk-assessment} below, a risk assessment and risk control is conducted. The letter “L" stands for “Likelihood”, “I” for “Impact” and "R" for "Risk".
+In Table \ref{tab:risk-assessment} below, a risk assessment and risk control is conducted. The letter “L" stands for “Likelihood”, “I” for “Impact” and "R" for "Risk".
 
 \begingroup
 \renewcommand{\tabularxcolumn}[1]{m{#1}} % Make columns vertically aligned
@@ -167,7 +165,7 @@ In table \ref{tab:risk-assessment} below, a risk assessment and risk control is 
 \endgroup
 \vspace{1em}
 
-The risk assessment done in table \ref{tab:risk-assessment} shows that with the appropriate counter measures, all risks are reduced to a MEDIUM level. This is an acceptable level.
+The risk assessment done in Table \ref{tab:risk-assessment} shows that with the appropriate counter measures, all risks are reduced to a MEDIUM level. This is an acceptable level.
 
 %%===================================
 \section{Primary activities in further work}
